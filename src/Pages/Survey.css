@@ -1,0 +1,91 @@
+/* Survey.css */
+
+.survey-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .survey-table th, .survey-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .survey-table th {
+    background-color: #5c51eb;
+  }
+  
+  .option input[type="radio"] {
+    margin: 0; /* Remove margin to keep the radio buttons centered */
+  }
+
+.rounded-green-button {
+  background-color: #45a049;
+  color: white;
+  border-radius: 10px; 
+  padding: 10px 20px; 
+  border: none;
+  cursor: pointer;
+}
+
+.rounded-green-button:hover {
+  background-color: #15d35e; /* Change the color on hover */
+}
+
+.pretraining-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.question-container {
+  margin-bottom: 20px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+}
+
+.image-container img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.question-container {
+  margin-bottom: 20px;
+}
+
+.question-border {
+  border: 6px solid #333232;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.question-image {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.options-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.line {
+  border-top: 2px solid #ccc;
+  margin: 10px 0;
+}
+
+.question-container.unanswered {
+  border: 2px solid red;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}

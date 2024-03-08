@@ -1,0 +1,28 @@
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+.rounded-green-button {
+  background-color: #45a049;
+  color: white;
+  border-radius: 10px; 
+  padding: 10px 20px; 
+  border: none;
+  cursor: pointer;
+}
+.rounded-blue-button {
+  background-color: #2658e0;
+  color: white;
+  border-radius: 10px; 
+  padding: 10px 20px; 
+  border: none;
+  cursor: pointer;
+}
+.button-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}

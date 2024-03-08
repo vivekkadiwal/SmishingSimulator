@@ -1,0 +1,122 @@
+/* SmishSim.css */
+
+.smish-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.phone-screen {
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  padding: 20px;
+  width: 375px;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+
+.phone-frame {
+  background-color: #f2f2f2; /* iOS default background color */
+  border-radius: 16px;
+  width: 90%; /* Adjusted to fit the phone screen */
+  height: 90%; /* Adjusted to fit the phone screen */
+  overflow: hidden;
+}
+
+.message-preview {
+  background-color: #fff;
+  height: 90%; /* Adjusted to fit the phone screen */
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sender {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.message {
+  background-color: #e5f5fd; /* Light blue background */
+  padding: 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  max-width: 80%; /* Adjusted for iOS-like message width */
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #4cd964; /* iOS default green */
+  color: #fff;
+}
+
+.reply-field {
+  margin-top: auto;
+}
+
+.reply-field textarea {
+  width: calc(100% - 40px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.sender-btn,
+.template-btn,
+.url-btn,
+.send-btn,
+.export-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background-color: #007AFF;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.save-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background-color: #45a049;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.sender-btn:hover,
+.template-btn:hover,
+.url-btn:hover,
+.send-btn:hover,
+.export-btn:hover {
+  background-color: #0056b3; 
+}
