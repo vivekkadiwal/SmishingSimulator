@@ -295,26 +295,32 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './Survey.css';
 import * as XLSX from 'xlsx';
 
+const questionsData = [
+  'I am concerned about my privacy. ',
+  'To me it is important to keep my privacy intact. ',
+  'Novel technologies are threatening privacy increasingly.',
+  'When someone sends me a link, I open it only after verifying where it goes.',
+  'I know what website I’m visiting by looking at the URL bar, rather than by the website’s look and feel.  ',
+];
+
 const PreSurvey = () => {
-  const [responses, setResponses] = useState(Array(2).fill(0)); // Modify number of questions
+  const [responses, setResponses] = useState(Array(5).fill(0)); // Modify number of questions
   const [participantId, setParticipantId] = useState('');
-  const [validParticipantId, setValidParticipantId] = useState(true); // Track validity of participant ID
+  const [validParticipantId, setValidParticipantId] = useState(true);
   const [unansweredQuestions, setUnansweredQuestions] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0); // Track current page
-  const [warnBeforeUnload, setWarnBeforeUnload] = useState(false); // Track if warning is needed
-  const [isOptionSelected, setIsOptionSelected] = useState(false); // Track if an option is selected
+  const [currentPage, setCurrentPage] = useState(0);
+  const [warnBeforeUnload, setWarnBeforeUnload] = useState(false);
+  const [isOptionSelected, setIsOptionSelected] = useState(false);
 
   const navigate = useNavigate();
   const { participantID } = useParams();
 
   useEffect(() => {
     setParticipantId(participantID);
-    setValidParticipantId(!isNaN(participantID) && participantID.trim() !== ''); // Check validity of participant ID
+    setValidParticipantId(!isNaN(participantID) && participantID.trim() !== '');
 
-    // Setup beforeunload event listener
     const handleBeforeUnload = (event) => {
       if (warnBeforeUnload) {
-        // Show warning only if changes are made
         event.returnValue = 'Are you sure you want to leave? Your changes may not be saved.';
       }
     };
@@ -327,7 +333,6 @@ const PreSurvey = () => {
   }, [participantID, warnBeforeUnload]);
 
   useEffect(() => {
-    // Check if an option is selected for the current question
     setIsOptionSelected(responses[currentPage] !== 0);
   }, [responses, currentPage]);
 
@@ -335,7 +340,7 @@ const PreSurvey = () => {
     const newResponses = [...responses];
     newResponses[index] = value;
     setResponses(newResponses);
-    setWarnBeforeUnload(true); // Set warning flag when changes are made
+    setWarnBeforeUnload(true);
   };
 
   const handleNext = () => {
@@ -349,7 +354,6 @@ const PreSurvey = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Check if the participant ID is valid before proceeding
     if (!validParticipantId) {
       alert('Please enter a valid participant ID.');
       return;
@@ -362,13 +366,11 @@ const PreSurvey = () => {
       }
     }
 
-    // If there are unanswered questions, highlight them and return
     if (unanswered.length > 0) {
       setUnansweredQuestions(unanswered);
       return;
     }
 
-    // If all questions are answered, proceed with form submission
     const data = [
       ['Question', 'Response'],
       ...responses.map((response, index) => [`Question ${index + 1}`, response]),
@@ -384,9 +386,9 @@ const PreSurvey = () => {
 
     try {
       XLSX.writeFile(wb, fileName);
-      setResponses(Array(2).fill(0));
+      setResponses(Array(5).fill(0));
       setUnansweredQuestions([]);
-      setWarnBeforeUnload(false); // Reset warning flag after submission
+      setWarnBeforeUnload(false);
       if (currentPage === responses.length - 1) {
         navigate(`/pre-training/${participantId}`);
       } else {
@@ -394,14 +396,12 @@ const PreSurvey = () => {
       }
     } catch (error) {
       console.error('Error writing file:', error);
-      // Handle error gracefully, perhaps show a message to the user
     }
   };
 
   return (
     <div>
       <h2>Pre Survey Questions</h2>
-      {/* Display an error message if the participant ID is invalid */}
       {!validParticipantId && <p style={{ color: 'red' }}>Please enter a valid participant ID.</p>}
       <p>Participant ID: {participantId}</p>
       <form onSubmit={handleSubmit}>
@@ -414,7 +414,7 @@ const PreSurvey = () => {
           </thead>
           <tbody>
             <tr>
-              <td>{`Question ${currentPage + 1} Placeholder`}</td>
+              <td>{questionsData[currentPage]}</td>
               <td>
                 {[...Array(5)].map((_, i) => (
                   <label key={i} style={{ border: unansweredQuestions.includes(currentPage) ? '1px solid red' : 'none' }}>

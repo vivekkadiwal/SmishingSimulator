@@ -14,7 +14,7 @@ const SmishSim = () => {
     selectedUrl: ''
   });
 
-  const [imagesSaved, setImagesSaved] = useState(false); // Track if 10 images have been saved
+  const [imagesSaved, setImagesSaved] = useState(0);
 
   const handleSenderChange = (sender) => {
     setFormData({ ...formData, sender });
@@ -39,9 +39,12 @@ const SmishSim = () => {
       link.click();
       document.body.removeChild(link);
 
-      // Update imagesSaved state after saving image
       setImagesSaved(prev => prev + 1);
     });
+  };
+
+  const handleNextClick = () => {
+    navigate(`/post-training/${participantID}`);
   };
 
   const urlOptions = [
@@ -51,11 +54,6 @@ const SmishSim = () => {
     { label: 'http://insecurewebsite.com', url: 'http://insecurewebsite.com' },
     { label: 'https://phishingwebsite.com', url: 'https://phishingwebsite.com' }
   ];
-
-
-  if (imagesSaved === 10) {
-    navigate(`/post-survey/${participantID}`);
-  }
 
   return (
     <div className="smish-container">
@@ -102,32 +100,35 @@ const SmishSim = () => {
             </button>
           ))}
         </div>
-        <button className="save-btn" onClick={saveAsImage}>Save as Image</button>        
+        <button className="save-btn" onClick={saveAsImage}>Save as Image</button>
+        {imagesSaved >= 6 && (
+          <button className="next-btn" onClick={handleNextClick}>Next</button>
+        )}
         <br />
       </div>
-      <div className="right-section">
-        <h2>Message Preview</h2>
-        <div className="phone-screen">
-          <div className="phone-frame">
-            <div className="message-preview">
-              <div className="message-container">
-                <div className="sender">{formData.sender || 'Unknown Sender'}</div>
-                <div className="message user-message">
-                  {formData.selectedTemplate || formData.message || 'Your message will appear here.'}
-                  {formData.selectedUrl && (
-                    <span className="url-link">
-                      Click here: <a href={formData.selectedUrl}>{formData.selectedUrl}</a>
-                    </span>
-                  )}
-                </div>
-              </div>
-              <div className="reply-field">
-                <textarea placeholder="Type your reply here..." readOnly></textarea>
-              </div>
+      <div class="right-section">
+    <h2>Message Preview</h2>
+    <div class="phone-screen">
+      <div class="phone-frame">
+        <div class="message-preview">
+          <div class="message-container">
+            <div class="sender">{formData.sender || 'Unknown Sender'}</div>
+            <div class="message user-message">
+              {formData.selectedTemplate || formData.message || 'Your message will appear here.'}
+              {formData.selectedUrl && (
+                <span class="url-link">
+                  <a href="{formData.selectedUrl}">{formData.selectedUrl}</a>
+                </span>
+              )}
             </div>
+          </div>
+          <div class="reply-field">
+            <textarea placeholder="Type your reply here..." readonly></textarea>
           </div>
         </div>
       </div>
+    </div>
+  </div>
     </div>
   );
 };

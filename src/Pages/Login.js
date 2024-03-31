@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [participantID, setParticipantID] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Check if participantID is within the specified range
     const id = parseInt(participantID);
     if ((id >= 1 && id <= 60) || id === 100 || id === 101 || id === 102) {
       navigate(`/pre-survey/${participantID}`);

@@ -3,12 +3,12 @@
 // import './Survey.css';
 // import * as XLSX from 'xlsx';
 
-// const PostTraining = () => {
+// const PreTraining = () => {
 //   const [responses, setResponses] = useState(Array(10).fill(null));
 //   const [participantId, setParticipantId] = useState('');
 //   const [imageData, setImageData] = useState([]);
 //   const [unansweredQuestions, setUnansweredQuestions] = useState([]);
-//   const [warnBeforeUnload, setWarnBeforeUnload] = useState(false); // Track if warning is needed
+//   const [warnBeforeUnload, setWarnBeforeUnload] = useState(false); 
 
 //   const navigate = useNavigate();
 //   const { participantID } = useParams();
@@ -16,10 +16,9 @@
 //   useEffect(() => {
 //     setParticipantId(participantID);
 
-//     // Setup beforeunload event listener
+
 //     const handleBeforeUnload = (event) => {
 //       if (warnBeforeUnload) {
-//         // Show warning only if changes are made
 //         event.returnValue = 'Are you sure you want to leave? Your changes may not be saved.';
 //       }
 //     };
@@ -69,7 +68,7 @@
 //     const newResponses = [...responses];
 //     newResponses[index] = value;
 //     setResponses(newResponses);
-//     setWarnBeforeUnload(true); // Set warning flag when changes are made
+//     setWarnBeforeUnload(true); 
 //   };
 
 //   const handleSubmit = (event) => {
@@ -98,12 +97,23 @@
 //       const wb = XLSX.utils.book_new();
 //       XLSX.utils.book_append_sheet(wb, ws, 'Survey Responses');
 
-//       const fileName = participantId ? `PostTraining_${participantId}.xlsx` : 'survey_responses.xlsx';
+//       const fileName = participantId ? `PreTraining_${participantId}.xlsx` : 'survey_responses.xlsx';
 
 //       try {
 //         XLSX.writeFile(wb, fileName);
 //         setResponses(Array(10).fill(null));
-//         navigate(`/post-survey/${participantId}`);
+
+        
+//         if ((parseInt(participantId) >= 1 && parseInt(participantId) <= 20) || participantId === '100') {
+//           navigate(`/smish-sim/${participantId}`);
+//         } else if ((parseInt(participantId) >= 21 && parseInt(participantId) <= 40) || participantId === '101') {
+//           navigate(`/youtube-train/${participantId}`);
+//         } else if ((parseInt(participantId) >= 41 && parseInt(participantId) <= 60) || participantId === '102') {
+//           navigate(`/post-survey/${participantId}`);
+//         } else {
+//           console.error('Participant ID out of range:', participantId);
+//         }
+        
 //       } catch (error) {
 //         console.error('Error writing file:', error);
 //       }
@@ -112,7 +122,7 @@
 
 //   return (
 //     <div>
-//       <h2>Post Training Tasks</h2>
+//       <h2>Pre Training Tasks</h2>
 //       <p>Participant ID: {participantId}</p>
 //       <form onSubmit={handleSubmit}>
 //         {imageData.map((item, index) => (
@@ -172,21 +182,20 @@
 //   );
 // };
 
-// export default PostTraining;
-
+// export default PreTraining;
 
 // import React, { useState, useEffect } from 'react';
 // import { useNavigate, useParams } from 'react-router-dom';
 // import './Survey.css';
 // import * as XLSX from 'xlsx';
 
-// const PostTraining = () => {
+// const PreTraining = () => {
 //   const [responses, setResponses] = useState(Array(10).fill(null));
 //   const [participantId, setParticipantId] = useState('');
 //   const [imageData, setImageData] = useState([]);
-//   const [currentPage, setCurrentPage] = useState(0); // Track current page
 //   const [unansweredQuestions, setUnansweredQuestions] = useState([]);
-//   const [warnBeforeUnload, setWarnBeforeUnload] = useState(false); // Track if warning is needed
+//   const [currentPage, setCurrentPage] = useState(0); // Track current page
+//   const [warnBeforeUnload, setWarnBeforeUnload] = useState(false);
 
 //   const navigate = useNavigate();
 //   const { participantID } = useParams();
@@ -194,10 +203,8 @@
 //   useEffect(() => {
 //     setParticipantId(participantID);
 
-//     // Setup beforeunload event listener
 //     const handleBeforeUnload = (event) => {
 //       if (warnBeforeUnload) {
-//         // Show warning only if changes are made
 //         event.returnValue = 'Are you sure you want to leave? Your changes may not be saved.';
 //       }
 //     };
@@ -247,7 +254,7 @@
 //     const newResponses = [...responses];
 //     newResponses[index] = value;
 //     setResponses(newResponses);
-//     setWarnBeforeUnload(true); // Set warning flag when changes are made
+//     setWarnBeforeUnload(true);
 //   };
 
 //   const handleNext = () => {
@@ -280,16 +287,22 @@
 //       const wb = XLSX.utils.book_new();
 //       XLSX.utils.book_append_sheet(wb, ws, 'Survey Responses');
 
-//       const fileName = participantId ? `PostTraining_${participantId}.xlsx` : 'survey_responses.xlsx';
+//       const fileName = participantId ? `PreTraining_${participantId}.xlsx` : 'survey_responses.xlsx';
 
 //       try {
 //         XLSX.writeFile(wb, fileName);
 //         setResponses(Array(10).fill(null));
-//         if (currentPage === imageData.length - 1) {
+
+//         if ((parseInt(participantId) >= 1 && parseInt(participantId) <= 20) || participantId === '100') {
+//           navigate(`/smish-sim/${participantId}`);
+//         } else if ((parseInt(participantId) >= 21 && parseInt(participantId) <= 40) || participantId === '101') {
+//           navigate(`/youtube-train/${participantId}`);
+//         } else if ((parseInt(participantId) >= 41 && parseInt(participantId) <= 60) || participantId === '102') {
 //           navigate(`/post-survey/${participantId}`);
 //         } else {
-//           setCurrentPage(currentPage + 1);
+//           console.error('Participant ID out of range:', participantId);
 //         }
+
 //       } catch (error) {
 //         console.error('Error writing file:', error);
 //       }
@@ -298,17 +311,17 @@
 
 //   return (
 //     <div>
-//       <h2>Post Training Tasks</h2>
+//       <h2>Pre Training Tasks</h2>
 //       <p>Participant ID: {participantId}</p>
 //       <form onSubmit={handleSubmit}>
-//         {currentPage < imageData.length && (
-//           <div className={`question-container ${unansweredQuestions.includes(currentPage + 1) ? 'unanswered' : ''}`}>
+//         {imageData.map((item, index) => (
+//           <div key={index} className={`question-container ${unansweredQuestions.includes(index + 1) ? 'unanswered' : ''}`} style={{ display: index === currentPage ? 'block' : 'none' }}>
 //             <div className="question-border">
-//               <p>Question {currentPage + 1}:</p>
+//               <p>Question {index + 1}:</p>
 //               <hr className="line" />
 //               <img
-//                 src={imageData[currentPage].url}
-//                 alt={`Image ${currentPage + 1}`}
+//                 src={item.url}
+//                 alt={`Image ${index + 1}`}
 //                 style={{ maxWidth: '300px', maxHeight: '500px' }}
 //               />
 //               <hr className="line" />
@@ -316,37 +329,37 @@
 //                 <label>
 //                   <input
 //                     type="radio"
-//                     name={`question${currentPage + 1}`}
+//                     name={`question${index + 1}`}
 //                     value={0}
-//                     checked={responses[currentPage] === 0}
-//                     onChange={() => handleResponseChange(currentPage, 0)}
+//                     checked={responses[index] === 0}
+//                     onChange={() => handleResponseChange(index, 0)}
 //                   />
 //                   Real
 //                 </label>
 //                 <label>
 //                   <input
 //                     type="radio"
-//                     name={`question${currentPage + 1}`}
+//                     name={`question${index + 1}`}
 //                     value={1}
-//                     checked={responses[currentPage] === 1}
-//                     onChange={() => handleResponseChange(currentPage, 1)}
+//                     checked={responses[index] === 1}
+//                     onChange={() => handleResponseChange(index, 1)}
 //                   />
 //                   Maybe
 //                 </label>
 //                 <label>
 //                   <input
 //                     type="radio"
-//                     name={`question${currentPage + 1}`}
+//                     name={`question${index + 1}`}
 //                     value={2}
-//                     checked={responses[currentPage] === 2}
-//                     onChange={() => handleResponseChange(currentPage, 2)}
+//                     checked={responses[index] === 2}
+//                     onChange={() => handleResponseChange(index, 2)}
 //                   />
 //                   Fake
 //                 </label>
 //               </div>
 //             </div>
 //           </div>
-//         )}
+//         ))}
 //         {unansweredQuestions.length > 0 && (
 //           <p className="error-message">Please answer all questions before submitting.</p>
 //         )}
@@ -355,15 +368,17 @@
 //             Next
 //           </button>
 //         )}
-//         <button type="submit" className="rounded-green-button">
-//           Submit & Next Section
-//         </button>
+//         {currentPage === imageData.length - 1 && (
+//           <button type="submit" className="rounded-green-button">
+//             Submit & Next Section
+//           </button>
+//         )}
 //       </form>
 //     </div>
 //   );
 // };
 
-// export default PostTraining;
+// export default PreTraining;
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -374,10 +389,10 @@ const PostTraining = () => {
   const [responses, setResponses] = useState(Array(10).fill(null));
   const [participantId, setParticipantId] = useState('');
   const [imageData, setImageData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0); // Track current page
   const [unansweredQuestions, setUnansweredQuestions] = useState([]);
-  const [warnBeforeUnload, setWarnBeforeUnload] = useState(false); // Track if warning is needed
-  const [isOptionSelected, setIsOptionSelected] = useState(false); // Track if an option is selected
+  const [currentPage, setCurrentPage] = useState(0);
+  const [warnBeforeUnload, setWarnBeforeUnload] = useState(false);
+  const [isOptionSelected, setIsOptionSelected] = useState(false); 
 
   const navigate = useNavigate();
   const { participantID } = useParams();
@@ -385,10 +400,8 @@ const PostTraining = () => {
   useEffect(() => {
     setParticipantId(participantID);
 
-    // Setup beforeunload event listener
     const handleBeforeUnload = (event) => {
       if (warnBeforeUnload) {
-        // Show warning only if changes are made
         event.returnValue = 'Are you sure you want to leave? Your changes may not be saved.';
       }
     };
@@ -435,7 +448,6 @@ const PostTraining = () => {
   }, [participantID]);
 
   useEffect(() => {
-    // Check if an option is selected for the current question
     setIsOptionSelected(responses[currentPage] !== null);
   }, [responses, currentPage]);
 
@@ -443,7 +455,7 @@ const PostTraining = () => {
     const newResponses = [...responses];
     newResponses[index] = value;
     setResponses(newResponses);
-    setWarnBeforeUnload(true); // Set warning flag when changes are made
+    setWarnBeforeUnload(true);
   };
 
   const handleNext = () => {
@@ -481,11 +493,17 @@ const PostTraining = () => {
       try {
         XLSX.writeFile(wb, fileName);
         setResponses(Array(10).fill(null));
-        if (currentPage === imageData.length - 1) {
+
+        if ((parseInt(participantId) >= 1 && parseInt(participantId) <= 20) || participantId === '100') {
+          navigate(`/post-survey/${participantId}`);
+        } else if ((parseInt(participantId) >= 21 && parseInt(participantId) <= 40) || participantId === '101') {
+          navigate(`/post-survey/${participantId}`);
+        } else if ((parseInt(participantId) >= 41 && parseInt(participantId) <= 60) || participantId === '102') {
           navigate(`/post-survey/${participantId}`);
         } else {
-          setCurrentPage(currentPage + 1);
+          console.error('Participant ID out of range:', participantId);
         }
+
       } catch (error) {
         console.error('Error writing file:', error);
       }
@@ -497,14 +515,14 @@ const PostTraining = () => {
       <h2>Post Training Tasks</h2>
       <p>Participant ID: {participantId}</p>
       <form onSubmit={handleSubmit}>
-        {currentPage < imageData.length && (
-          <div className={`question-container ${unansweredQuestions.includes(currentPage + 1) ? 'unanswered' : ''}`}>
+        {imageData.map((item, index) => (
+          <div key={index} className={`question-container ${unansweredQuestions.includes(index + 1) ? 'unanswered' : ''}`} style={{ display: index === currentPage ? 'block' : 'none' }}>
             <div className="question-border">
-              <p>Question {currentPage + 1}:</p>
+              <p>Question {index + 1}:</p>
               <hr className="line" />
               <img
-                src={imageData[currentPage].url}
-                alt={`Image ${currentPage + 1}`}
+                src={item.url}
+                alt={`${index + 1}`}
                 style={{ maxWidth: '300px', maxHeight: '500px' }}
               />
               <hr className="line" />
@@ -512,37 +530,37 @@ const PostTraining = () => {
                 <label>
                   <input
                     type="radio"
-                    name={`question${currentPage + 1}`}
+                    name={`question${index + 1}`}
                     value={0}
-                    checked={responses[currentPage] === 0}
-                    onChange={() => handleResponseChange(currentPage, 0)}
+                    checked={responses[index] === 0}
+                    onChange={() => handleResponseChange(index, 0)}
                   />
                   Real
                 </label>
                 <label>
                   <input
                     type="radio"
-                    name={`question${currentPage + 1}`}
+                    name={`question${index + 1}`}
                     value={1}
-                    checked={responses[currentPage] === 1}
-                    onChange={() => handleResponseChange(currentPage, 1)}
+                    checked={responses[index] === 1}
+                    onChange={() => handleResponseChange(index, 1)}
                   />
                   Maybe
                 </label>
                 <label>
                   <input
                     type="radio"
-                    name={`question${currentPage + 1}`}
+                    name={`question${index + 1}`}
                     value={2}
-                    checked={responses[currentPage] === 2}
-                    onChange={() => handleResponseChange(currentPage, 2)}
+                    checked={responses[index] === 2}
+                    onChange={() => handleResponseChange(index, 2)}
                   />
                   Fake
                 </label>
               </div>
             </div>
           </div>
-        )}
+        ))}
         {unansweredQuestions.length > 0 && (
           <p className="error-message">Please answer all questions before submitting.</p>
         )}
@@ -551,9 +569,11 @@ const PostTraining = () => {
             Next
           </button>
         )}
-        <button type="submit" className="rounded-green-button" disabled={!isOptionSelected}>
-          Submit & Next Section
-        </button>
+        {currentPage === imageData.length - 1 && (
+          <button type="submit" className="rounded-green-button" disabled={!isOptionSelected}>
+            Submit & Next Section
+          </button>
+        )}
       </form>
     </div>
   );

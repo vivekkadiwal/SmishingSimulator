@@ -390,9 +390,9 @@ const PreTraining = () => {
   const [participantId, setParticipantId] = useState('');
   const [imageData, setImageData] = useState([]);
   const [unansweredQuestions, setUnansweredQuestions] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0); // Track current page
+  const [currentPage, setCurrentPage] = useState(0);
   const [warnBeforeUnload, setWarnBeforeUnload] = useState(false);
-  const [isOptionSelected, setIsOptionSelected] = useState(false); // Track if an option is selected
+  const [isOptionSelected, setIsOptionSelected] = useState(false); 
 
   const navigate = useNavigate();
   const { participantID } = useParams();
@@ -448,7 +448,6 @@ const PreTraining = () => {
   }, [participantID]);
 
   useEffect(() => {
-    // Check if an option is selected for the current question
     setIsOptionSelected(responses[currentPage] !== null);
   }, [responses, currentPage]);
 
@@ -498,9 +497,9 @@ const PreTraining = () => {
         if ((parseInt(participantId) >= 1 && parseInt(participantId) <= 20) || participantId === '100') {
           navigate(`/smish-sim/${participantId}`);
         } else if ((parseInt(participantId) >= 21 && parseInt(participantId) <= 40) || participantId === '101') {
-          navigate(`/youtube-train/${participantId}`);
+          navigate(`/smish-sim/${participantId}`);
         } else if ((parseInt(participantId) >= 41 && parseInt(participantId) <= 60) || participantId === '102') {
-          navigate(`/post-survey/${participantId}`);
+          navigate(`/smish-sim/${participantId}`);
         } else {
           console.error('Participant ID out of range:', participantId);
         }
@@ -523,7 +522,7 @@ const PreTraining = () => {
               <hr className="line" />
               <img
                 src={item.url}
-                alt={`Image ${index + 1}`}
+                alt={`${index + 1}`}
                 style={{ maxWidth: '300px', maxHeight: '500px' }}
               />
               <hr className="line" />
