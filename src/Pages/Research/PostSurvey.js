@@ -51,7 +51,7 @@ const questionsData = [
 
 AWS.config.update({
   accessKeyId: 'AKIAZQ3DRHDX7IVE7WME',
-  secretAccessKey: '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',
+  secretAccessKey: '',
   region: 'us-east-2',
 });
 
