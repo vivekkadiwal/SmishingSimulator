@@ -1,0 +1,142 @@
+/* Apple wrapper */
+.apple-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* iPhone device */
+.iphone {
+  width: 375px; /* iPhone width */
+  height: 812px; /* iPhone height */
+  border-radius: 40px; /* iPhone rounded corners */
+  overflow: hidden; /* Hide content overflowing from iPhone */
+  position: relative; /* Position for absolute elements inside */
+  background: #000; /* iPhone frame color */
+}
+
+/* iPhone inner */
+.iphone-inner {
+  width: calc(100% - 30px); /* Adjust for inner padding */
+  height: calc(100% - 30px); /* Adjust for inner padding */
+  border-radius: 30px; /* Inner rounded corners */
+  overflow: hidden; /* Hide content overflowing from inner */
+  position: relative; /* Position for absolute elements inside */
+  top: 15px; /* Adjust for inner padding */
+  left: 15px; /* Adjust for inner padding */
+}
+
+/* iPhone screen */
+.iphone-screen {
+  background: #fff; /* iPhone screen color */
+  height: 100%; /* Take full height */
+  position: relative; /* Position for absolute elements inside */
+}
+
+/* Messaging app container */
+.messaging-app {
+  padding: 20px; /* Padding inside the app */
+  height: calc(100% - 40px); /* Adjust to leave space for header and message input */
+  display: flex; /* Display as flex */
+  flex-direction: column; /* Column layout for children */
+  justify-content: space-between; /* Space between header and messages */
+}
+
+/* Header */
+.header {
+  display: flex; /* Display as flex */
+  justify-content: space-between; /* Space between elements */
+  align-items: center; /* Align vertically */
+  margin-bottom: 20px; /* Bottom margin */
+}
+
+/* Messages container */
+.messages {
+  flex: 1; /* Grow to fill remaining space */
+  overflow-y: auto; /* Auto overflow for messages */
+}
+
+/* Individual message */
+.message {
+  margin-bottom: 10px; /* Bottom margin for messages */
+  display: flex; /* Display as flex */
+}
+
+/* Message content */
+.message-content {
+  padding: 10px; /* Padding inside messages */
+  border-radius: 10px; /* Rounded corners for messages */
+  max-width: 70%; /* Max width for messages */
+}
+
+/* Message from self */
+.from-me {
+  align-self: flex-end; /* Align to the right */
+  background: #dcf8c6; /* Light green background */
+}
+
+/* Message from contact */
+.from-contact {
+  align-self: flex-start; /* Align to the left */
+  background: #e0e0e0; /* Light grey background */
+}
+
+/* Message input */
+.message-input {
+  display: flex; /* Display as flex */
+}
+
+.message-input input {
+  flex: 1; /* Take remaining space */
+  padding: 10px; /* Padding inside input */
+  border: none; /* No border */
+  border-radius: 20px; /* Rounded corners */
+  margin-right: 10px; /* Right margin */
+}
+
+.message-input button {
+  padding: 10px 20px; /* Padding for button */
+  border: none; /* No border */
+  border-radius: 20px; /* Rounded corners */
+  background: #007bff; /* Blue background */
+  color: #fff; /* White text color */
+  cursor: pointer; /* Pointer cursor */
+}
+
+/* Left side texts for sender names */
+.sender-names {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Arrange items vertically */
+  gap: 10px; /* Add gap between items */
+}
+
+/* Right side container for message options */
+.message-options {
+  position: absolute;
+  top: calc(50% + 50px); /* Offset from the sender names */
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Arrange items vertically */
+  gap: 10px; /* Add gap between items */
+}
+
+/* Text hover effect */
+.text:hover {
+  background-color: #e0e0e0;
+}
+
+/* Individual text */
+.text {
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  width: 100px;
+}

@@ -1,0 +1,84 @@
+/* Survey.css */
+
+.survey-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .survey-table th, .survey-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .survey-table th {
+    background-color: #5c51eb;
+    color: whitesmoke;
+  }
+  
+  .option input[type="radio"] {
+    margin: 0;
+  }
+
+.rounded-green-button {
+  background-color: #45a049;
+  color: white;
+  border-radius: 10px; 
+  padding: 10px 20px; 
+  border: none;
+  cursor: pointer;
+}
+
+.rounded-green-button:hover {
+  background-color: #15d35e; 
+}
+
+.pretraining-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.question-container {
+  margin-bottom: 20px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.image-container img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.question-container {
+  margin-bottom: 20px;
+}
+
+
+.question-border {
+  /* border: 1px solid #333232; */
+  padding: 10px;
+  /* border-radius: 5px; */
+}
+
+.question-image {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.options-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.line {
+  margin: 10px 0;
+}

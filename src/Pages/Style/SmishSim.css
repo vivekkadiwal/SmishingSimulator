@@ -1,0 +1,152 @@
+/* SmishSim.css */
+
+.smish-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-section{
+  flex: 1;
+  padding: 20px;
+  width: 50%;
+}
+.right-section {
+  flex: 1;
+  padding: 20px;
+  width: 50%;
+}
+
+.phone-screen {
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  padding: 10px;
+  width: 375px;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.phone-frame {
+  background-color: #f2f2f2;
+  border-radius: 16px;
+  width: 90%; 
+  height: 95%; 
+  overflow: hidden;
+}
+
+.message-preview {
+  background-color: #fff;
+  height: 95%; 
+  padding: 5px 2px;
+  overflow-y: auto;
+  display: grid;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* overflow:scroll; */
+  text-align: center; /* Center all text within the container */
+}
+
+.sender {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.message {
+  background-color: #e5f5fd;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  word-break: break-word;
+  max-width: 80%;
+}
+
+.url-link {
+  margin-top: 20px; /* Add margin between message and link */
+}
+
+.reply-field {
+  align-content: end;
+}
+
+.reply-field textarea {
+  width: calc(100% - 20px);
+  height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  resize: none;
+  box-sizing: border-box;
+  margin-top: 20px; /* Add margin above the reply field */
+}
+
+/* Other styles */
+
+.sender-btn,
+.template-btn,
+.url-btn,
+.send-btn,
+.export-btn,
+.save-btn,
+.next-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background-color: #007AFF;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.save-btn,
+.next-btn {
+  background-color: #45a049;
+}
+
+.sender-btn:hover,
+.template-btn:hover,
+.url-btn:hover,
+.send-btn:hover,
+.export-btn:hover {
+  background-color: #0056b3; 
+}
+
+
+.message-container {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+
+
+.progress-bar-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #34db66;
+  border-radius: 10px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #34db66; /* You can change the color here */
+  border-radius: 10px;
+  transition: width 0.3s ease-in-out; /* Add a transition effect for smooth width changes */
+}
